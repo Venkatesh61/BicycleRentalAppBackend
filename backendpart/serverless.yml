@@ -1,0 +1,40 @@
+service: bicycle-app-lambda
+
+
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  memorySize: 512
+  timeout: 15
+  stage: dev
+  region: ap-northeast-2
+
+functions:
+  api:
+    handler: lambda.handler
+    events:
+      - http: 
+         path: bicycles
+         method: get
+      - http: 
+         path: bicycles
+         method: post
+      - http:
+         path: /path
+         method: put
+      - http: 
+         path: /path
+         method: delete
+      - http: 
+         path: bookings
+         method: get
+      - http: 
+         path: bookings
+         method: post
+      - http: 
+         path: bookings
+         method: put
+      - http: 
+         path: /path
+         method: delete

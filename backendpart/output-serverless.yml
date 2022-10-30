@@ -1,0 +1,15 @@
+service: bicycle-app-backend
+provider:
+  name: aws
+  runtime: nodejs16.x
+  memorySize: 512
+  timeout: 15
+  stage: production
+  profile: Rohini
+  region: 
+function:
+  api:
+    handler: lambda.handler
+    events:  ap-northeast-2
+    - http: ANY {proxy+}
+    - http: ANY /
